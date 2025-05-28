@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Github, ArrowUp, Mail, MapPin, Palette } from "lucide-react";
+import { Palette, ArrowUp, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -93,7 +93,7 @@ const Index = () => {
       <ThemeToggle />
       
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-40 bg-background/20 dark:bg-black/20 backdrop-blur-md border-b border-border/30">
+      <nav className="fixed top-0 w-full z-40 bg-background/80 dark:bg-black/40 backdrop-blur-md border-b border-border/30">
         <div className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
@@ -119,7 +119,7 @@ const Index = () => {
       {/* Hero Section */}
       <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 animate-pulse"></div>
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] animate-pulse"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%239C92AC\" fill-opacity=\"0.05\"%3E%3Ccircle cx=\"30\" cy=\"30\" r=\"2\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] animate-pulse"></div>
         <div className={`container mx-auto px-6 text-center relative z-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="mb-8">
             <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-fade-in">
@@ -128,7 +128,7 @@ const Index = () => {
             <p className="text-2xl md:text-3xl text-foreground/90 mb-8 animate-fade-in" style={{animationDelay: '0.2s'}}>
               Full Stack Web Developer
             </p>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12 animate-fade-in" style={{animationDelay: '0.4s'}}>
+            <p className="text-lg text-foreground/80 max-w-2xl mx-auto mb-12 animate-fade-in shadow-sm" style={{animationDelay: '0.4s'}}>
               Crafting beautiful, interactive web experiences with modern technologies. 
               Passionate about creating solutions that make a difference.
             </p>
@@ -144,7 +144,7 @@ const Index = () => {
             <Button 
               variant="outline" 
               size="lg"
-              className="border-border/50 text-foreground hover:bg-accent/20 px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 backdrop-blur-sm"
+              className="border-border/50 bg-background/80 text-foreground hover:bg-accent/20 px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 backdrop-blur-sm"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Get In Touch
@@ -158,9 +158,9 @@ const Index = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold text-foreground mb-8 animate-fade-in">About Me</h2>
-            <Card className="bg-card/50 backdrop-blur-md border-border/30 text-foreground hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in">
+            <Card className="bg-card/80 backdrop-blur-md border-border/30 text-foreground hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in">
               <CardContent className="p-8">
-                <p className="text-lg leading-relaxed text-muted-foreground">
+                <p className="text-lg leading-relaxed text-foreground/80">
                   I'm Michelle, a passionate full-stack web developer with expertise in modern web technologies. 
                   I love creating interactive, user-friendly applications that solve real-world problems. 
                   With experience in both frontend and backend development, I bring ideas to life through clean, 
@@ -199,7 +199,7 @@ const Index = () => {
             {projects.map((project, index) => (
               <Card 
                 key={project.title}
-                className={`bg-card/50 backdrop-blur-md border-border/30 hover:bg-card/70 transition-all duration-300 hover:scale-105 hover:shadow-2xl animate-fade-in group cursor-pointer`}
+                className={`bg-card/80 backdrop-blur-md border-border/30 hover:bg-card/90 transition-all duration-300 hover:scale-105 hover:shadow-2xl animate-fade-in group cursor-pointer`}
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <CardHeader>
@@ -215,7 +215,7 @@ const Index = () => {
                   <CardTitle className="text-foreground group-hover:text-primary transition-colors">
                     {project.title}
                   </CardTitle>
-                  <CardDescription className="text-muted-foreground">
+                  <CardDescription className="text-foreground/70">
                     {project.description}
                   </CardDescription>
                 </CardHeader>
@@ -242,23 +242,23 @@ const Index = () => {
             
             <div className="grid md:grid-cols-2 gap-8">
               {/* Contact Info */}
-              <Card className="bg-card/50 backdrop-blur-md border-border/30 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in">
+              <Card className="bg-card/80 backdrop-blur-md border-border/30 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in">
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
                     <Mail className="h-6 w-6 text-primary" />
                     Get In Touch
                   </h3>
-                  <p className="text-muted-foreground mb-8 text-lg">
+                  <p className="text-foreground/80 mb-8 text-lg">
                     Ready to bring your next project to life? I'd love to hear about your ideas and 
                     discuss how we can create something amazing together.
                   </p>
                   
                   <div className="space-y-4">
-                    <div className="flex items-center gap-3 text-muted-foreground">
+                    <div className="flex items-center gap-3 text-foreground/80">
                       <Mail className="h-5 w-5 text-primary" />
                       <span>michelle.dev2025@gmail.com</span>
                     </div>
-                    <div className="flex items-center gap-3 text-muted-foreground">
+                    <div className="flex items-center gap-3 text-foreground/80">
                       <Palette className="h-5 w-5 text-primary" />
                       <span>Available on Fiverr</span>
                     </div>
@@ -269,8 +269,8 @@ const Index = () => {
                       size="lg"
                       className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground px-6 py-3 rounded-full transition-all duration-300 hover:scale-105"
                     >
-                      <Github className="mr-2 h-5 w-5" />
-                      View Github
+                      <Palette className="mr-2 h-5 w-5" />
+                      View Fiverr
                     </Button>
                   </div>
                 </CardContent>
