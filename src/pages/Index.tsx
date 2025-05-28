@@ -125,10 +125,10 @@ const Index = () => {
             <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-fade-in">
               Michelle
             </h1>
-            <p className="text-2xl md:text-3xl text-foreground/90 mb-8 animate-fade-in" style={{animationDelay: '0.2s'}}>
+            <p className="text-2xl md:text-3xl text-foreground/90 mb-8 animate-fade-in bg-background/60 dark:bg-background/30 px-4 py-2 rounded-lg backdrop-blur-sm" style={{animationDelay: '0.2s'}}>
               Full Stack Web Developer
             </p>
-            <p className="text-lg text-foreground/80 max-w-2xl mx-auto mb-12 animate-fade-in shadow-sm" style={{animationDelay: '0.4s'}}>
+            <p className="text-lg text-foreground/80 max-w-2xl mx-auto mb-12 animate-fade-in bg-background/50 dark:bg-background/20 px-6 py-4 rounded-lg backdrop-blur-sm" style={{animationDelay: '0.4s'}}>
               Crafting beautiful, interactive web experiences with modern technologies. 
               Passionate about creating solutions that make a difference.
             </p>
@@ -157,7 +157,7 @@ const Index = () => {
       <section id="about" className="py-20 relative">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold text-foreground mb-8 animate-fade-in">About Me</h2>
+            <h2 className="text-4xl font-bold text-foreground mb-8 animate-fade-in bg-background/60 dark:bg-background/30 px-6 py-3 rounded-lg backdrop-blur-sm inline-block">About Me</h2>
             <Card className="bg-card/80 backdrop-blur-md border-border/30 text-foreground hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in">
               <CardContent className="p-8">
                 <p className="text-lg leading-relaxed text-foreground/80">
@@ -175,7 +175,7 @@ const Index = () => {
       {/* Skills Section */}
       <section id="skills" className="py-20 relative">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-foreground text-center mb-12 animate-fade-in">Technical Skills</h2>
+          <h2 className="text-4xl font-bold text-foreground text-center mb-12 animate-fade-in bg-background/60 dark:bg-background/30 px-6 py-3 rounded-lg backdrop-blur-sm inline-block">Technical Skills</h2>
           <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
             {skills.map((skill, index) => (
               <Badge
@@ -194,7 +194,7 @@ const Index = () => {
       {/* Projects Section */}
       <section id="projects" className="py-20 relative">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-foreground text-center mb-12 animate-fade-in">Featured Projects</h2>
+          <h2 className="text-4xl font-bold text-foreground text-center mb-12 animate-fade-in bg-background/60 dark:bg-background/30 px-6 py-3 rounded-lg backdrop-blur-sm inline-block">Featured Projects</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {projects.map((project, index) => (
               <Card 
@@ -238,7 +238,7 @@ const Index = () => {
       <section id="contact" className="py-20 relative">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-foreground text-center mb-12 animate-fade-in">Let's Work Together</h2>
+            <h2 className="text-4xl font-bold text-foreground text-center mb-12 animate-fade-in bg-background/60 dark:bg-background/30 px-6 py-3 rounded-lg backdrop-blur-sm inline-block">Let's Work Together</h2>
             
             <div className="grid md:grid-cols-2 gap-8">
               {/* Contact Info */}
