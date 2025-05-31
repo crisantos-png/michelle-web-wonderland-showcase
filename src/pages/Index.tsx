@@ -89,14 +89,14 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background/95 to-accent/20 dark:from-slate-900 dark:via-purple-900 dark:to-slate-900 transition-colors duration-500">
+    <div className="min-h-screen bg-white dark:bg-black transition-colors duration-500">
       <ThemeToggle />
       
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-40 bg-background/80 dark:bg-black/40 backdrop-blur-md border-b border-border/30">
+      <nav className="fixed top-0 w-full z-40 bg-white/90 dark:bg-black/90 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800 shadow-sm">
         <div className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            <h1 className="text-2xl font-bold text-black dark:text-white">
               Michelle
             </h1>
             <div className="hidden md:flex space-x-8">
@@ -104,8 +104,10 @@ const Index = () => {
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className={`text-sm font-medium transition-all duration-300 hover:text-primary hover:scale-105 ${
-                    activeSection === item.toLowerCase() ? "text-primary" : "text-foreground/80"
+                  className={`text-sm font-medium transition-all duration-300 hover:text-blue-600 dark:hover:text-blue-400 hover:scale-105 ${
+                    activeSection === item.toLowerCase() 
+                      ? "text-blue-600 dark:text-blue-400" 
+                      : "text-gray-600 dark:text-gray-300"
                   }`}
                 >
                   {item}
@@ -117,18 +119,17 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
-      <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 animate-pulse"></div>
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%239C92AC\" fill-opacity=\"0.05\"%3E%3Ccircle cx=\"30\" cy=\"30\" r=\"2\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] animate-pulse"></div>
+      <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-white via-gray-50 to-blue-50 dark:from-black dark:via-gray-900 dark:to-blue-950">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-indigo-500/5 dark:from-blue-400/10 dark:to-indigo-400/10"></div>
         <div className={`container mx-auto px-6 text-center relative z-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="mb-8">
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-fade-in">
+            <h1 className="text-6xl md:text-8xl font-bold mb-6 text-black dark:text-white animate-fade-in">
               Michelle
             </h1>
-            <p className="text-2xl md:text-3xl text-foreground/90 mb-8 animate-fade-in bg-background/60 dark:bg-background/30 px-4 py-2 rounded-lg backdrop-blur-sm" style={{animationDelay: '0.2s'}}>
+            <p className="text-2xl md:text-3xl text-gray-700 dark:text-gray-200 mb-8 animate-fade-in bg-white/80 dark:bg-black/50 px-6 py-3 rounded-xl backdrop-blur-sm border border-gray-200 dark:border-gray-700 inline-block" style={{animationDelay: '0.2s'}}>
               Full Stack Web Developer
             </p>
-            <p className="text-lg text-foreground/80 max-w-2xl mx-auto mb-12 animate-fade-in bg-background/50 dark:bg-background/20 px-6 py-4 rounded-lg backdrop-blur-sm" style={{animationDelay: '0.4s'}}>
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-12 animate-fade-in bg-white/60 dark:bg-black/30 px-8 py-6 rounded-xl backdrop-blur-sm border border-gray-200 dark:border-gray-700" style={{animationDelay: '0.4s'}}>
               Crafting beautiful, interactive web experiences with modern technologies. 
               Passionate about creating solutions that make a difference.
             </p>
@@ -136,7 +137,7 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{animationDelay: '0.6s'}}>
             <Button 
               size="lg" 
-              className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg border-0"
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
             >
               View My Work
@@ -144,7 +145,7 @@ const Index = () => {
             <Button 
               variant="outline" 
               size="lg"
-              className="border-border/50 bg-background/80 text-foreground hover:bg-accent/20 px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 backdrop-blur-sm"
+              className="border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-black text-black dark:text-white hover:bg-gray-50 dark:hover:bg-gray-900 px-8 py-3 rounded-full transition-all duration-300 hover:scale-105"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Get In Touch
@@ -154,13 +155,13 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 relative">
+      <section id="about" className="py-20 bg-gray-50 dark:bg-gray-900">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold text-foreground mb-8 animate-fade-in bg-background/60 dark:bg-background/30 px-6 py-3 rounded-lg backdrop-blur-sm inline-block">About Me</h2>
-            <Card className="bg-card/80 backdrop-blur-md border-border/30 text-foreground hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in">
+            <h2 className="text-4xl font-bold text-black dark:text-white mb-8 animate-fade-in bg-white dark:bg-black px-8 py-4 rounded-xl border border-gray-200 dark:border-gray-700 inline-block shadow-sm">About Me</h2>
+            <Card className="bg-white dark:bg-black border-2 border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in">
               <CardContent className="p-8">
-                <p className="text-lg leading-relaxed text-foreground/80">
+                <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-200">
                   I'm Michelle, a passionate full-stack web developer with expertise in modern web technologies. 
                   I love creating interactive, user-friendly applications that solve real-world problems. 
                   With experience in both frontend and backend development, I bring ideas to life through clean, 
@@ -173,15 +174,14 @@ const Index = () => {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 relative">
+      <section id="skills" className="py-20 bg-white dark:bg-black">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-foreground text-center mb-12 animate-fade-in bg-background/60 dark:bg-background/30 px-6 py-3 rounded-lg backdrop-blur-sm inline-block">Technical Skills</h2>
+          <h2 className="text-4xl font-bold text-black dark:text-white text-center mb-12 animate-fade-in bg-gray-50 dark:bg-gray-900 px-8 py-4 rounded-xl border border-gray-200 dark:border-gray-700 inline-block shadow-sm">Technical Skills</h2>
           <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
             {skills.map((skill, index) => (
               <Badge
                 key={skill}
-                variant="secondary"
-                className={`text-lg px-6 py-3 bg-gradient-to-r from-primary/80 to-secondary/80 text-primary-foreground border-0 hover:scale-110 transition-all duration-300 animate-fade-in cursor-pointer hover:shadow-lg`}
+                className={`text-lg px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white border-0 hover:scale-110 transition-all duration-300 animate-fade-in cursor-pointer shadow-md rounded-full`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {skill}
@@ -192,37 +192,36 @@ const Index = () => {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 relative">
+      <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-900">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-foreground text-center mb-12 animate-fade-in bg-background/60 dark:bg-background/30 px-6 py-3 rounded-lg backdrop-blur-sm inline-block">Featured Projects</h2>
+          <h2 className="text-4xl font-bold text-black dark:text-white text-center mb-12 animate-fade-in bg-white dark:bg-black px-8 py-4 rounded-xl border border-gray-200 dark:border-gray-700 inline-block shadow-sm">Featured Projects</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {projects.map((project, index) => (
               <Card 
                 key={project.title}
-                className={`bg-card/80 backdrop-blur-md border-border/30 hover:bg-card/90 transition-all duration-300 hover:scale-105 hover:shadow-2xl animate-fade-in group cursor-pointer`}
+                className={`bg-white dark:bg-black border-2 border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500 transition-all duration-300 hover:scale-105 hover:shadow-xl animate-fade-in group cursor-pointer`}
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 <CardHeader>
                   <div className="flex justify-between items-start mb-2">
                     <Badge 
-                      variant={project.status === "Completed" ? "default" : "secondary"}
                       className={project.status === "Completed" ? "bg-green-600 text-white" : "bg-yellow-600 text-white"}
                     >
                       {project.status}
                     </Badge>
-                    <span className="text-xs text-primary font-medium">{project.type}</span>
+                    <span className="text-xs text-blue-600 dark:text-blue-400 font-medium">{project.type}</span>
                   </div>
-                  <CardTitle className="text-foreground group-hover:text-primary transition-colors">
+                  <CardTitle className="text-black dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                     {project.title}
                   </CardTitle>
-                  <CardDescription className="text-foreground/70">
+                  <CardDescription className="text-gray-600 dark:text-gray-300">
                     {project.description}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech) => (
-                      <Badge key={tech} variant="outline" className="text-xs border-primary/50 text-primary/80">
+                      <Badge key={tech} variant="outline" className="text-xs border-blue-300 dark:border-blue-600 text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/30">
                         {tech}
                       </Badge>
                     ))}
@@ -235,31 +234,31 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 relative">
+      <section id="contact" className="py-20 bg-white dark:bg-black">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-foreground text-center mb-12 animate-fade-in bg-background/60 dark:bg-background/30 px-6 py-3 rounded-lg backdrop-blur-sm inline-block">Let's Work Together</h2>
+            <h2 className="text-4xl font-bold text-black dark:text-white text-center mb-12 animate-fade-in bg-gray-50 dark:bg-gray-900 px-8 py-4 rounded-xl border border-gray-200 dark:border-gray-700 inline-block shadow-sm">Let's Work Together</h2>
             
             <div className="grid md:grid-cols-2 gap-8">
               {/* Contact Info */}
-              <Card className="bg-card/80 backdrop-blur-md border-border/30 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in">
+              <Card className="bg-white dark:bg-black border-2 border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in">
                 <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
-                    <Mail className="h-6 w-6 text-primary" />
+                  <h3 className="text-2xl font-bold text-black dark:text-white mb-6 flex items-center gap-2">
+                    <Mail className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                     Get In Touch
                   </h3>
-                  <p className="text-foreground/80 mb-8 text-lg">
+                  <p className="text-gray-600 dark:text-gray-300 mb-8 text-lg">
                     Ready to bring your next project to life? I'd love to hear about your ideas and 
                     discuss how we can create something amazing together.
                   </p>
                   
                   <div className="space-y-4">
-                    <div className="flex items-center gap-3 text-foreground/80">
-                      <Mail className="h-5 w-5 text-primary" />
+                    <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
+                      <Mail className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                       <span>michelle.dev2025@gmail.com</span>
                     </div>
-                    <div className="flex items-center gap-3 text-foreground/80">
-                      <Palette className="h-5 w-5 text-primary" />
+                    <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
+                      <Palette className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                       <span>Available on Fiverr</span>
                     </div>
                   </div>
@@ -267,7 +266,7 @@ const Index = () => {
                   <div className="flex gap-4 mt-8">
                     <Button 
                       size="lg"
-                      className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground px-6 py-3 rounded-full transition-all duration-300 hover:scale-105"
+                      className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg"
                     >
                       <Palette className="mr-2 h-5 w-5" />
                       View Fiverr
@@ -288,7 +287,7 @@ const Index = () => {
       {/* Scroll to Top Button */}
       <Button
         onClick={scrollToTop}
-        className="fixed bottom-8 right-8 bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-50"
+        className="fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-50 border-0"
         size="icon"
       >
         <ArrowUp className="h-5 w-5" />
