@@ -1,15 +1,16 @@
-
 import { useState, useEffect } from "react";
-import { Palette, ArrowUp, Mail, MapPin } from "lucide-react";
+import { Palette, ArrowUp, Mail, MapPin, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { ContactForm } from "@/components/ContactForm";
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
+  const [skillsLoaded, setSkillsLoaded] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -24,6 +25,10 @@ const Index = () => {
           const rect = element.getBoundingClientRect();
           if (rect.top <= 100 && rect.bottom >= 100) {
             setActiveSection(section);
+            // Trigger skills animation when skills section is visible
+            if (section === "skills" && !skillsLoaded) {
+              setTimeout(() => setSkillsLoaded(true), 500);
+            }
             break;
           }
         }
@@ -32,15 +37,23 @@ const Index = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [skillsLoaded]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const skills = [
-    "React", "Node.js", "Supabase", "Firebase", "Fiverr", 
-    "Vanilla JS", "Vue.js", "TypeScript", "Tailwind CSS", "MongoDB"
+    { name: "React", proficiency: 95 },
+    { name: "Node.js", proficiency: 90 },
+    { name: "TypeScript", proficiency: 88 },
+    { name: "JavaScript", proficiency: 95 },
+    { name: "Tailwind CSS", proficiency: 92 },
+    { name: "Vue.js", proficiency: 85 },
+    { name: "MongoDB", proficiency: 80 },
+    { name: "Firebase", proficiency: 88 },
+    { name: "Supabase", proficiency: 85 },
+    { name: "Next.js", proficiency: 87 }
   ];
 
   const projects = [
@@ -162,7 +175,7 @@ const Index = () => {
             <Card className="bg-white dark:bg-black border-2 border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in">
               <CardContent className="p-8">
                 <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-200">
-                  I'm Michelle, a passionate full-stack web developer with expertise in modern web technologies. 
+                  I'm Michelle Akudo, a passionate full-stack web developer with expertise in modern web technologies. 
                   I love creating interactive, user-friendly applications that solve real-world problems. 
                   With experience in both frontend and backend development, I bring ideas to life through clean, 
                   efficient code and beautiful design. Available for freelance projects on Fiverr.
@@ -177,15 +190,26 @@ const Index = () => {
       <section id="skills" className="py-20 bg-white dark:bg-black">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl font-bold text-black dark:text-white text-center mb-12 animate-fade-in bg-gray-50 dark:bg-gray-900 px-8 py-4 rounded-xl border border-gray-200 dark:border-gray-700 inline-block shadow-sm">Technical Skills</h2>
-          <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto space-y-6">
             {skills.map((skill, index) => (
-              <Badge
-                key={skill}
-                className={`text-lg px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white border-0 hover:scale-110 transition-all duration-300 animate-fade-in cursor-pointer shadow-md rounded-full`}
+              <div
+                key={skill.name}
+                className={`animate-fade-in`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                {skill}
-              </Badge>
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-lg font-semibold text-black dark:text-white">
+                    {skill.name}
+                  </span>
+                  <span className="text-sm text-gray-600 dark:text-gray-400">
+                    {skillsLoaded ? `${skill.proficiency}%` : '0%'}
+                  </span>
+                </div>
+                <Progress 
+                  value={skillsLoaded ? skill.proficiency : 0} 
+                  className="h-3 bg-gray-200 dark:bg-gray-700"
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -261,15 +285,35 @@ const Index = () => {
                       <Palette className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                       <span>Available on Fiverr</span>
                     </div>
+                    <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
+                      <Linkedin className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                      <a 
+                        href="https://www.linkedin.com/in/michelle-akudo-99301a369" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                      >
+                        LinkedIn Profile
+                      </a>
+                    </div>
                   </div>
 
-                  <div className="flex gap-4 mt-8">
+                  <div className="flex gap-4 mt-8 flex-wrap">
                     <Button 
                       size="lg"
                       className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full transition-all duration-300 hover:scale-105 shadow-lg"
                     >
                       <Palette className="mr-2 h-5 w-5" />
                       View Fiverr
+                    </Button>
+                    <Button 
+                      size="lg"
+                      variant="outline"
+                      className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-6 py-3 rounded-full transition-all duration-300 hover:scale-105"
+                      onClick={() => window.open('https://www.linkedin.com/in/michelle-akudo-99301a369', '_blank')}
+                    >
+                      <Linkedin className="mr-2 h-5 w-5" />
+                      LinkedIn
                     </Button>
                   </div>
                 </CardContent>
